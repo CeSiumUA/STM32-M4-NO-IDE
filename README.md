@@ -13,32 +13,59 @@
 * Install VSCode extensions: [Cortex-Debug](https://marketplace.visualstudio.com/items?itemName=marus25.cortex-debug) and [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 
 * Create ```launch.json```:
-        {
-            "version": "0.2.0",
-            "configurations": [
-                {
-                    "cwd": "${workspaceRoot}",
-                    "executable": "./output/output_fmw.elf",
-                    "name": "Debug with OpenOCD",
-                    "request": "launch",
-                    "type": "cortex-debug",
-                    "servertype": "openocd",
-                    "configFiles": [
-                        "/usr/share/openocd/scripts/board/st_nucleo_f4.cfg"
-                    ],
-                    "searchDir": [],
-                    "runToEntryPoint": "main",
-                    "showDevDebugOutput": "none"
-                }
-        
-            ]
-        }
+```        
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "cwd": "${workspaceRoot}",
+          "executable": "./output/output_fmw.elf",
+          "name": "Debug with OpenOCD",
+          "request": "launch",
+          "type": "cortex-debug",
+          "servertype": "openocd",
+          "configFiles": [
+              "/usr/share/openocd/scripts/board/st_nucleo_f4.cfg"
+          ],
+          "searchDir": [],
+          "runToEntryPoint": "main",
+          "showDevDebugOutput": "none"
+      }
+  ]
+}
+```
 * Create ```settings.json```:
+```
+{
+    "cortex-debug.armToolchainPath": "/usr/bin",
+    "cortex-debug.openocdPath": "/usr/bin/openocd",
+    "cortex-debug.variableUseNaturalFormat": false
+}
+```
+* Create ```c_cpp_properties.json```:
+```
+{
+    "configurations": [
         {
-            "cortex-debug.armToolchainPath": "/usr/bin",
-            "cortex-debug.openocdPath": "/usr/bin/openocd",
-            "cortex-debug.variableUseNaturalFormat": false
+            "name": "vscode_stm32_c_cpp_properties",
+            "compilerPath": "/usr/bin/arm-none-eabi-gcc",
+            "includePath": [
+                "${workspaceRoot}/../shared/Inc/",
+                "${workspaceRoot}/../shared/Drivers/CMSIS/Include/",
+                "${workspaceRoot}/../shared/Drivers/CMSIS/Device/ST/STM32F4xx/Include/"
+            ],
+            "defines": [
+                "STM32F429xx"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64",
+            "configurationProvider": "ms-vscode.makefile-tools"
         }
+    ],
+    "version": 4
+}
+```
 
 ## STEPS : 
 
