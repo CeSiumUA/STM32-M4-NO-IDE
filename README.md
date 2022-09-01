@@ -5,7 +5,6 @@ ___
 2. [To Debug in VSCode](#to-debug-in-vscode)
 3. [Building and Flashing Steps](#building-and-flashing-steps)
 4. [How to use from WSL](#how-to-use-from-wsl)
-___
 ## PROJECT STRUCTURE:
 
 * GPIO: Includes a simple program that demonstrates how to blink LED on Nucleo F411RE
