@@ -10,15 +10,11 @@ echo "${REMOTE_URL}"
 if [ $REMOTE_URL=$DEFAULT_REMOTE_URL ]
 then
     echo Recreating git repository...
+    rm -rf .git
     git init
     echo "Enter new repository url (blank if none):"
     read url
-    if [ $url="" ]
-    then
-        echo "No url added"
-    else
-        git remote add origin $url
-    fi
+    git remote add origin $url
 else
     echo Repository was already unsticked from default origin
 fi
