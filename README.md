@@ -1,3 +1,11 @@
+# STM32 M4 Template No IDE
+___
+## Table of Contents
+1. [Project Structure](#project-structure)
+2. [To Debug in VSCode](#to-debug-in-vscode)
+3. [Building and Flashing Steps](#building-and-flashing-steps)
+4. [How to use from WSL](#how-to-use-from-wsl)
+___
 ## PROJECT STRUCTURE:
 
 * GPIO: Includes a simple program that demonstrates how to blink LED on Nucleo F411RE
@@ -71,7 +79,7 @@
 }
 ```
 
-## STEPS : 
+## Building and Flashing Steps: 
 
   
 * COMPILE THE DEMO CODE (src/main.c) :
@@ -111,7 +119,7 @@ or
   $ make gdb
 ```
 
-## How to use from WSL
+## How to use from WSL:
 
 - On Windows side: 
 ```
