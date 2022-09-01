@@ -1,0 +1,1 @@
+st-flash --reset write output/output_fmw.bin 0x8000000

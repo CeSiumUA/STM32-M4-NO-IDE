@@ -1,0 +1,99 @@
+## PROJECT STRUCTURE:
+
+* GPIO: Includes a simple program that demonstrates how to blink LED on Nucleo F411RE
+* shared: required to build a project
+
+## TO DEBUG IN VSCODE:
+
+* Install toolchain and openocd:
+```
+  $ sudo apt install gcc-arm-none-eabi gdb-multiarch openocd
+```
+
+* Install VSCode extensions: [Cortex-Debug](https://marketplace.visualstudio.com/items?itemName=marus25.cortex-debug) and [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+
+* Create ```launch.json```:
+        {
+            "version": "0.2.0",
+            "configurations": [
+                {
+                    "cwd": "${workspaceRoot}",
+                    "executable": "./output/output_fmw.elf",
+                    "name": "Debug with OpenOCD",
+                    "request": "launch",
+                    "type": "cortex-debug",
+                    "servertype": "openocd",
+                    "configFiles": [
+                        "/usr/share/openocd/scripts/board/st_nucleo_f4.cfg"
+                    ],
+                    "searchDir": [],
+                    "runToEntryPoint": "main",
+                    "showDevDebugOutput": "none"
+                }
+        
+            ]
+        }
+* Create ```settings.json```:
+        {
+            "cortex-debug.armToolchainPath": "/usr/bin",
+            "cortex-debug.openocdPath": "/usr/bin/openocd",
+            "cortex-debug.variableUseNaturalFormat": false
+        }
+
+## STEPS : 
+
+  
+* COMPILE THE DEMO CODE (src/main.c) :
+```
+  $ make 
+```
+* FLASH :
+```
+  $ make flash
+```
+or
+```
+  $ stlink_flash.sh
+```
+or
+```
+  $ st-flash --reset write output/output_fmw.bin 0x8000000
+```
+or
+```
+  $ openocd -f /usr/share/openocd/scripts/board/st_nucleo_f4.cfg -c "program output/output_fmw.elf verify reset exit"
+```
+* CLEAN BINARIES (OPTIONAL) :
+```
+  $ make clean
+```
+* ERASE THE CHIP'S CONTENT (OPTIONAL) :
+```
+  $ make erase
+```
+* START THE DEBUGGING SESSION :
+```
+  $ make debug
+```
+* OPEN ANOTHER TERMINAL WINDOW, AND LET THE FUN BEGIN :
+```
+  $ make gdb
+```
+
+## How to use from WSL
+
+- On Windows side: 
+```
+ $ usbipd wsl list
+```
+following by:
+```
+ $ usbipd wsl attach --busid <busid>
+```
+- On Linux side (just to check):
+```
+ $ lsusb
+```
+
+Source: [WSL + USB = ❤️](https://docs.microsoft.com/en-us/windows/wsl/connect-usb)
+
