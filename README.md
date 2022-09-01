@@ -2,6 +2,10 @@
 
 * GPIO: Includes a simple program that demonstrates how to blink LED on Nucleo F411RE
 * shared: required to build a project
+* To create a new project from template, run: 
+```
+  $ tools/new_project.sh
+```
 
 ## TO DEBUG IN VSCODE:
 
