@@ -7,7 +7,7 @@ REMOTE_URL=$(git config --get remote.origin.url)
 DEFAULT_REMOTE_URL=https://github.com/CeSiumUA/STM32-M4-NO-IDE.git
 echo "${REMOTE_URL}"
 
-if [ $REMOTE_URL=$DEFAULT_REMOTE_URL ]
+if [ "$REMOTE_URL" = "$DEFAULT_REMOTE_URL" ]
 then
     echo Recreating git repository...
     rm -rf .git
