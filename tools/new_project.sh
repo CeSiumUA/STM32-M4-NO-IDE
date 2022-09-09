@@ -21,6 +21,15 @@ fi
 
 echo "Enter new project name:"
 read new_project_name
-cp --recursive GPIO $new_project_name
+
+echo "Enter project to copy from:"
+read copy_from
+
+if [ "$copy_from" = "" ]
+then
+    cp --recursive GPIO $new_project_name
+else
+    cp --recursive $copy_from $new_project_name
+fi
 
 echo "Done :)"
