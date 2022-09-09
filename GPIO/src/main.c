@@ -1,17 +1,13 @@
 #include "stm32f4xx.h"
 
-#define PIN5          (1U<<5)
-#define LED_PIN       PIN5
-
-
 int main(void){
     RCC -> AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
 
-    GPIOA -> MODER |= (1U<<10);
-    GPIOA -> MODER &=~ (1U<11);
+    GPIOA -> MODER |= GPIO_MODER_MODER5_0;
+    GPIOA -> MODER &=~GPIO_MODER_MODER5_1;
 
     while(1){
-        GPIOA -> ODR ^= LED_PIN;
+        GPIOA -> ODR ^= GPIO_ODR_ODR_5;
         for(int i = 0; i < 1000000; i++){
             
         }
