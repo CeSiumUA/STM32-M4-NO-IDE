@@ -32,4 +32,14 @@ else
     cp --recursive $copy_from $new_project_name
 fi
 
+echo "Remove source folder? (y - remove, anything else - ignore)"
+read remove_decision
+
+if [ "$remove_decision" = "y" ]
+then
+    rm -rf $copy_from
+else
+    echo ""
+fi
+
 echo "Done :)"
