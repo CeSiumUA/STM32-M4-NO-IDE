@@ -16,23 +16,24 @@ OBJCOPY=arm-none-eabi-objcopy
 # Source Files
 
 SRCS = src/*.c
-SRCS += ../shared/Drivers/src/*.c
+SRCS += board_include/drivers/src/*.c
 
-SRCS +=  ../shared/Startup/startup_stm32.S
+SRCS +=  board_include/startup/startup_stm32.S
 
 # Compiler Flags
 
-CFLAGS  = -g -O0 -Wall -T ../shared/LinkerScript.ld -D USE_STDPERIPH_DRIVER
+CFLAGS  = -g -O0 -Wall -T board_include/LinkerScript.ld -D USE_STDPERIPH_DRIVER
 CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 CFLAGS += --specs=nosys.specs
 
 # Header Files (-I flag)
 
-CFLAGS += -I include/
-CFLAGS += -I ../shared/include/
-CFLAGS += -I ../shared/Drivers/inc/
-CFLAGS += -I ../shared/CMSIS/Include/
+CFLAGS += -I inc/
+CFLAGS += -I board_include/
+CFLAGS += -I board_include/include/
+CFLAGS += -I board_include/drivers/inc/
+CFLAGS += -I board_include/cmsis/include/
 
 #######################################################################################
 

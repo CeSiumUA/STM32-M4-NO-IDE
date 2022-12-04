@@ -61,9 +61,9 @@ ___
             "name": "vscode_stm32_c_cpp_properties",
             "compilerPath": "/usr/bin/arm-none-eabi-gcc",
             "includePath": [
-                "${workspaceRoot}/../shared/Inc/",
-                "${workspaceRoot}/../shared/Drivers/CMSIS/Include/",
-                "${workspaceRoot}/../shared/Drivers/CMSIS/Device/ST/STM32F4xx/Include/"
+                "${workspaceRoot}/include/include/",
+                "${workspaceRoot}/include/cmsis/include/",
+                "${workspaceRoot}/include/drivers/inc"
             ],
             "defines": [
                 "STM32F429xx"

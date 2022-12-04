@@ -4,9 +4,9 @@
             "name": "vscode_stm32_c_cpp_properties",
             "compilerPath": "/usr/bin/arm-none-eabi-gcc",
             "includePath": [
-                "${workspaceRoot}/include/include/",
-                "${workspaceRoot}/include/cmsis/include/",
-                "${workspaceRoot}/include/drivers/inc"
+                "${workspaceRoot}/board_include/include/",
+                "${workspaceRoot}/board_include/cmsis/include/",
+                "${workspaceRoot}/board_include/drivers/inc"
             ],
             "defines": [
                 "STM32F429xx"
