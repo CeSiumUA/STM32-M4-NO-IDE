@@ -1,9 +1,0 @@
-{
-    "cortex-debug.armToolchainPath": "/usr/bin",
-    "cortex-debug.openocdPath": "/usr/bin/openocd",
-    "files.associations": {
-        "stm32f4xx.h": "c",
-        "stm32f4xx_conf.h": "c"
-    },
-    "cortex-debug.variableUseNaturalFormat": false
-}
