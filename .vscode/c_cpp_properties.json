@@ -4,6 +4,7 @@
             "name": "vscode_stm32_c_cpp_properties",
             "compilerPath": "/usr/bin/arm-none-eabi-gcc",
             "includePath": [
+                "${workspaceRoot}/inc/",
                 "${workspaceRoot}/board_include/include/",
                 "${workspaceRoot}/board_include/cmsis/include/",
                 "${workspaceRoot}/board_include/drivers/inc"
