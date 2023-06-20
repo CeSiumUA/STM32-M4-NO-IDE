@@ -1,1 +1,0 @@
-openocd -f /usr/share/openocd/scripts/board/st_nucleo_f4.cfg -c "program output/output_fmw.elf verify reset exit"
