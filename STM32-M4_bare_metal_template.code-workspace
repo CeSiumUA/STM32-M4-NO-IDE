@@ -5,12 +5,31 @@
 		}
 	],
 	"settings": {
-		"cortex-debug.armToolchainPath": "/usr/bin",
-		"cortex-debug.openocdPath": "/usr/bin/openocd",
+		"C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
 		"files.associations": {
 			"stm32f4xx.h": "c",
 			"stm32f4xx_conf.h": "c"
 		},
 		"cortex-debug.variableUseNaturalFormat": false
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"cwd": "${workspaceRoot}",
+				"executable": "./build/output_fmw.elf",
+				"name": "Debug with OpenOCD",
+				"request": "launch",
+				"type": "cortex-debug",
+				"servertype": "openocd",
+				"configFiles": [
+					"/usr/share/openocd/scripts/board/st_nucleo_f4.cfg"
+				],
+				"searchDir": [],
+				"runToEntryPoint": "main",
+				"showDevDebugOutput": "none"
+			}
+		],
+		"compounds": []
 	}
 }

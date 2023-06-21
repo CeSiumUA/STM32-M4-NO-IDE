@@ -23,14 +23,18 @@ ___
 
 * Install VSCode extensions: [Cortex-Debug](https://marketplace.visualstudio.com/items?itemName=marus25.cortex-debug) and [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 
-* Create ```launch.json```:
+* If you are on Windows, you may want to change ```configFiles``` path in ```STM32-M4_bare_metal_template.code-workspace``` file to correspond your board config path
+
+The next steps are required if you don't want to use the configuration, provided in ```STM32-M4_bare_metal_template.code-workspace``` file
+
+* Create ```launch.json``` (You may want to change ```configFiles``` path):
 ```        
 {
   "version": "0.2.0",
   "configurations": [
       {
           "cwd": "${workspaceRoot}",
-          "executable": "./output/output_fmw.elf",
+          "executable": "./build/output.elf",
           "name": "Debug with OpenOCD",
           "request": "launch",
           "type": "cortex-debug",
